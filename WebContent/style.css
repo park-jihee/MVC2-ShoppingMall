@@ -30,19 +30,21 @@
         #menu ul li a{
             color: white;
             line-height: 50px;
-
         }
-        #section{
+        section{
             width: 100%;
-            background-color: #f9f9f9;
+            height: 1000px;
         }
-
-        #section h2{
+        section h2{
             text-align: center;
             padding: 20px 0px;
         }
-        #section ol{
+        section ol{
             margin-left: 18px;
+        }
+       	section button{
+        	width: 100px;
+        	height: 50px;
         }
         #addForm{
             text-align: center;

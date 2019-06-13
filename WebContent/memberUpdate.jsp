@@ -11,7 +11,7 @@
 <body>
 	<h2>홈쇼핑 회원 정보 수정</h2>
 		<form action="=">
-			<table border="1" id="addForm">
+			<table border="1" id="addForm" style="width:800px" align="center">
 				<tr>
 					<td>회원번호(자동발생)</td>
 					<td><input type="text" name="custno" value="<%= vo.getCustno() %>"></td>

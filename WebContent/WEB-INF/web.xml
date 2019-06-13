@@ -41,4 +41,28 @@
     <servlet-name>MemberListCtrl</servlet-name>
     <url-pattern>/MemberListCtrl</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>MemberUpdateCtrl</servlet-name>
+    <servlet-class>kr.hs.sdh.member.view.MemberUpdateCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberUpdateCtrl</servlet-name>
+    <url-pattern>/MemberUpdateCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateMemberCtrl</servlet-name>
+    <servlet-class>kr.hs.sdh.member.view.UpdateMemberCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateMemberCtrl</servlet-name>
+    <url-pattern>/UpdateMemberCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MemberSaleCtrl</servlet-name>
+    <servlet-class>kr.hs.sdh.money.view.MemberSaleCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberSaleCtrl</servlet-name>
+    <url-pattern>/MemberSaleCtrl</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -13,20 +13,20 @@
 </head>
 <body>
 	<header id="header">
-		<h1>쇼핑몰 회원관리 VER 1.0</h1>
+		<h1>쇼핑몰 회원관리</h1>
 	</header>
 	<menu id="menu">
 		<ul>
 			<li><a href="MemberAddCtrl">회원등록</a></li>
 			<li><a href="MemberListCtrl">회원목록조회/수정</a></li>
-			<li><a href="">회원매출조회</a></li>
+			<li><a href="MemberSaleCtrl">회원매출조회</a></li>
 			<li><a href="index.jsp">홈으로</a></li>
 		</ul>
 	</menu>
 	<section id="section">
 		<h2>홈쇼핑 회원 등록</h2>
 		<form action="AddMemberCtrl">
-			<table border="1" id="addForm">
+			<table id="addForm" style="width:800px" align="center">
 				<tr>
 					<td>회원번호(자동발생)</td>
 					<td><input type="text" name="custno" value="<%= vo.getCustno() %>"></td>

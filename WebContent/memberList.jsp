@@ -12,18 +12,19 @@
 </head>
 <body>
 	<header id="header">
-		<h1>쇼핑몰 회원관리 VER 1.0</h1>
+		<h1>쇼핑몰 회원관리</h1>
 	</header>
 	<menu id="menu">
 		<ul>
 			<li><a href="MemberAddCtrl">회원등록</a></li>
 			<li><a href="MemberListCtrl">회원목록조회/수정</a></li>
-			<li><a href="">회원매출조회</a></li>
+			<li><a href="MemberSaleCtrl">회원매출조회</a></li>
 			<li><a href="index.jsp">홈으로</a></li>
 		</ul>
 	</menu>
 	<section id="section">
 		<h2>회원목록 조회</h2>
+		<table id="addForm" style="width:800px" align="center">
 		<tr>
 			<td>번호</td>
 			<td>이름</td>
@@ -38,7 +39,7 @@
 				MemberVO vo = memberList.get(i);
 		%>
 		<tr>
-			<td><%= vo.getCustno() %></td>
+			<td><a href="MemberUpdateCtrl?custno=<%= vo.getCustno() %>"><%= vo.getCustno() %></a></td>
 			<td><%= vo.getCustname() %></td>
 			<td><%= vo.getPhone() %></td>
 			<td><%= vo.getAddress() %></td>
@@ -47,6 +48,7 @@
 			<td><%= vo.getCity() %></td>
 		</tr>
 		<% } %>
+		</table>
 	</section>
 	<footer id="footer"><p>HRDKOREA Copyright© 2016 All rights reserved. Human Resources Development Service of Korea</p></footer>
 </body>
