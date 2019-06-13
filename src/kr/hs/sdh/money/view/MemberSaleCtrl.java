@@ -1,4 +1,4 @@
-package kr.hs.sdh.member.view;
+package kr.hs.sdh.money.view;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,21 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.hs.sdh.member.DAO.MemberDAO;
-import kr.hs.sdh.member.vo.MemberVO;
+import kr.hs.sdh.money.dao.MoneyDAO;
+import kr.hs.sdh.money.vo.MoneySale;
 
-public class MemberListCtrl extends HttpServlet {
+
+public class MemberSaleCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<MemberVO> memberList = new ArrayList<MemberVO>();
+		ArrayList<MoneySale> saleList = new ArrayList<MoneySale>();
 		
-		MemberDAO dao = new MemberDAO();
-		memberList = dao.getMemberList();
+		MoneyDAO dao = new MoneyDAO();
+		saleList = dao.getMemberList();
 		
-		request.setAttribute("memberList", memberList);
+		request.setAttribute("saleList", saleList);
 		
-		RequestDispatcher view = request.getRequestDispatcher("memberList.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("memberSale.jsp");
 		view.forward(request, response);
 	}
 

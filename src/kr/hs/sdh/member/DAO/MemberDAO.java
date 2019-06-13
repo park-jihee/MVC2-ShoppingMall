@@ -3,6 +3,7 @@ package kr.hs.sdh.member.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import kr.hs.sdh.member.vo.MemberVO;
@@ -15,9 +16,29 @@ public class MemberDAO {
 	ResultSet rs = null;
 	
 	// DB에서 내용가져오기
-	public MemberVO getMemberVO() {
+	public MemberVO getMemberVO(MemberVO custno) throws Exception {
+		
+		conn = DBConnection.getConnection();
+		
+		String sql = "select * from member_tbl_02 where custno = ?";
+		
+		stmt = conn.prepareStatement(sql);
+		
+		stmt.setInt(1, custno.getCustno());
+		
+		rs = stmt.executeQuery();
 		
 		MemberVO vo = new MemberVO();
+		
+		if(rs.next()) {
+			vo.setCustno(rs.getInt("custno"));
+			vo.setCustname(rs.getString("custname"));
+			vo.setPhone(rs.getString("phone"));
+			vo.setAddress(rs.getString("address"));
+			vo.setJoindate(rs.getDate("joindate"));
+			vo.setGrade(rs.getString("grade"));
+			vo.setCity(rs.getString("city"));
+		}
 		
 		return vo;
 	}
@@ -84,7 +105,7 @@ public class MemberDAO {
 		try {
 			conn = DBConnection.getConnection();
 			
-			String sql = "select * from member_tbl_02 order by desc";
+			String sql = "select * from member_tbl_02";
 			stmt = conn.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			
@@ -111,6 +132,32 @@ public class MemberDAO {
 			}
 		}
 		return memberList;
+	}
+	
+	//회원 정보 수정
+	public void updateMember(MemberVO vo) {
+		
+		try {
+			conn = DBConnection.getConnection();
+			
+			String sql = "Update member_tbl_02 set, custname = ?, phone = ?, address = ?, joindate = ?, grade = ?, city = ? where custno = ?";
+			
+			stmt = conn.prepareStatement(sql);
+			
+			stmt.setString(1, vo.getCustname());
+			stmt.setString(2, vo.getPhone());
+			stmt.setString(3, vo.getAddress());
+			stmt.setDate(4, vo.getJoindate());
+			stmt.setString(5, vo.getGrade());
+			stmt.setString(6, vo.getCity());
+			stmt.setInt(7, vo.getCustno());
+			
+			stmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
 

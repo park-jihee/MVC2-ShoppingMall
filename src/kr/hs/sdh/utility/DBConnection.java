@@ -11,16 +11,19 @@ public class DBConnection {
 		Connection conn = null;
 		
 		Class.forName("oracle.jdbc.OracleDriver");
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe");
+		
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		conn = DriverManager.getConnection(url, "hr", "hr");
 		return conn;
 	}
 	
-	public static void close(PreparedStatement stmt, Connection conn)  throws Exception{
+	public static void close(PreparedStatement stmt, Connection conn) throws Exception{
 		if(stmt != null) stmt.close();
 		if(conn != null) conn.close();
 	}
 	
-	public static void close(ResultSet rs, PreparedStatement stmt, Connection conn)  throws Exception{
+	public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) throws Exception{
+		if(rs != null) rs.close();
 		if(stmt != null) stmt.close();
 		if(conn != null) conn.close();
 	}

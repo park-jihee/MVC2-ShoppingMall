@@ -36,9 +36,13 @@ public class AddMemberCtrl extends HttpServlet {
 		
 		MemberDAO dao = new MemberDAO();
 		
-		dao.addMember(vo);
+		try {
+			dao.addMember(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		response.sendRedirect("inae");
+		response.sendRedirect("index.jsp");
 		
 	}
 
